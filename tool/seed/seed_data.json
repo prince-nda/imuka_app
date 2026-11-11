@@ -1,0 +1,593 @@
+{
+  "landlords": {
+    "owner-jc": {
+      "name": "Jean Claude M.",
+      "phone": "788555120",
+      "typicalReplyMinutes": 15,
+      "idVerified": true
+    },
+    "owner-diane": {
+      "name": "Diane Kamikazi",
+      "phone": "783441209",
+      "typicalReplyMinutes": 30,
+      "idVerified": true
+    },
+    "owner-eric": {
+      "name": "Eric Niyonzima",
+      "phone": "722310877",
+      "typicalReplyMinutes": 45,
+      "idVerified": true
+    },
+    "owner-grace": {
+      "name": "Grace Uwimana",
+      "phone": "739002113",
+      "typicalReplyMinutes": 20,
+      "idVerified": true
+    },
+    "owner-patrick": {
+      "name": "Patrick Habimana",
+      "phone": "791228450",
+      "typicalReplyMinutes": 60,
+      "idVerified": false
+    }
+  },
+  "properties": {
+    "kacyiru-modern": {
+      "title": "Kacyiru Modern Apartment",
+      "type": "apartment",
+      "neighbourhood": "Kacyiru",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 7 Ave",
+      "monthlyRent": 450000,
+      "rating": {
+        "__double": 4.8
+      },
+      "reviewCount": 26,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sizeSqm": 85,
+      "furnishing": "Semi-furnished",
+      "floor": "3rd of 5",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-30T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "wifi",
+        "security",
+        "parking",
+        "backupPower"
+      ],
+      "location": {
+        "__geo": [
+          -1.943,
+          30.096
+        ]
+      },
+      "transitNote": "~6 min by moto · bus stop 150 m away",
+      "imageAsset": "assets/images/kacyiru_hero.png",
+      "landlordId": "owner-jc",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": {
+        "__timestamp": "2026-10-11T22:00:00.000Z"
+      }
+    },
+    "kimironko-family": {
+      "title": "Kimironko Family House",
+      "type": "house",
+      "neighbourhood": "Kimironko",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 11 Ave",
+      "monthlyRent": 320000,
+      "rating": {
+        "__double": 4.6
+      },
+      "reviewCount": 18,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sizeSqm": 120,
+      "furnishing": "Unfurnished",
+      "floor": "Ground floor",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-14T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "security",
+        "parking"
+      ],
+      "location": {
+        "__geo": [
+          -1.9497,
+          30.1335
+        ]
+      },
+      "transitNote": "~12 min by moto · Kimironko market 400 m away",
+      "imageAsset": "assets/images/kimironko_thumb.png",
+      "landlordId": "owner-diane",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "remera-studio": {
+      "title": "Remera Studio",
+      "type": "studio",
+      "neighbourhood": "Remera",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 17 Ave",
+      "monthlyRent": 150000,
+      "rating": {
+        "__double": 4.5
+      },
+      "reviewCount": 31,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sizeSqm": 32,
+      "furnishing": "Fully furnished",
+      "floor": "2nd of 3",
+      "minLeaseMonths": 6,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-09T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "wifi",
+        "security"
+      ],
+      "location": {
+        "__geo": [
+          -1.959,
+          30.112
+        ]
+      },
+      "transitNote": "~8 min by moto · bus stop 100 m away",
+      "imageAsset": "assets/images/remera_thumb.png",
+      "landlordId": "owner-eric",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "gikondo-garden": {
+      "title": "Gikondo Garden Flat",
+      "type": "apartment",
+      "neighbourhood": "Gikondo",
+      "district": "Kicukiro",
+      "city": "Kigali",
+      "street": "KK 31 Ave",
+      "monthlyRent": 220000,
+      "rating": {
+        "__double": 4.2
+      },
+      "reviewCount": 12,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "sizeSqm": 70,
+      "furnishing": "Semi-furnished",
+      "floor": "1st of 2",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-30T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "parking"
+      ],
+      "location": {
+        "__geo": [
+          -1.975,
+          30.075
+        ]
+      },
+      "transitNote": "~10 min by moto · bus stop 250 m away",
+      "imageAsset": "assets/images/gikondo_thumb.png",
+      "landlordId": "owner-grace",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "nyamirambo-room": {
+      "title": "Nyamirambo Room",
+      "type": "room",
+      "neighbourhood": "Nyamirambo",
+      "district": "Nyarugenge",
+      "city": "Kigali",
+      "street": "KN 2 St",
+      "monthlyRent": 60000,
+      "rating": {
+        "__double": 4.0
+      },
+      "reviewCount": 7,
+      "bedrooms": 1,
+      "bathrooms": 0,
+      "sizeSqm": 18,
+      "furnishing": "Furnished",
+      "floor": "Ground floor",
+      "minLeaseMonths": 3,
+      "depositMonths": {
+        "__double": 0.5
+      },
+      "ownMeters": false,
+      "availableFrom": {
+        "__timestamp": "2026-11-04T22:00:00.000Z"
+      },
+      "facilities": [
+        "water"
+      ],
+      "location": {
+        "__geo": [
+          -1.98,
+          30.03
+        ]
+      },
+      "transitNote": "~18 min by moto · bus stop 80 m away",
+      "imageAsset": "assets/images/nyamirambo_thumb.png",
+      "landlordId": "owner-patrick",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": false,
+      "onSiteVerified": false,
+      "lastCheckedAt": null
+    },
+    "kacyiru-garden": {
+      "title": "Kacyiru Garden Apartment",
+      "type": "apartment",
+      "neighbourhood": "Kacyiru",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 9 Ave",
+      "monthlyRent": 380000,
+      "rating": {
+        "__double": 4.7
+      },
+      "reviewCount": 14,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "sizeSqm": 78,
+      "furnishing": "Semi-furnished",
+      "floor": "2nd of 4",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-12-14T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "wifi",
+        "security",
+        "parking"
+      ],
+      "location": {
+        "__geo": [
+          -1.9395,
+          30.089
+        ]
+      },
+      "transitNote": "~7 min by moto · bus stop 200 m away",
+      "imageAsset": "assets/images/kigali_hero.png",
+      "landlordId": "owner-jc",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "kacyiru-hillside": {
+      "title": "Kacyiru Hillside Apartment",
+      "type": "apartment",
+      "neighbourhood": "Kacyiru",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 3 Ave",
+      "monthlyRent": 350000,
+      "rating": {
+        "__double": 4.4
+      },
+      "reviewCount": 9,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sizeSqm": 80,
+      "furnishing": "Unfurnished",
+      "floor": "1st of 3",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 2.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-12-31T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "security",
+        "backupPower"
+      ],
+      "location": {
+        "__geo": [
+          -1.947,
+          30.083
+        ]
+      },
+      "transitNote": "~5 min by moto · bus stop 300 m away",
+      "imageAsset": "assets/images/kacyiru_thumb.png",
+      "landlordId": "owner-diane",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "kimihurura-townhouse": {
+      "title": "Kimihurura Townhouse",
+      "type": "house",
+      "neighbourhood": "Kimihurura",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 5 Ave",
+      "monthlyRent": 650000,
+      "rating": {
+        "__double": 4.9
+      },
+      "reviewCount": 11,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sizeSqm": 180,
+      "furnishing": "Fully furnished",
+      "floor": "2 floors",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 2.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-30T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "wifi",
+        "security",
+        "parking",
+        "backupPower"
+      ],
+      "location": {
+        "__geo": [
+          -1.956,
+          30.078
+        ]
+      },
+      "transitNote": "~6 min by moto · bus stop 350 m away",
+      "imageAsset": "assets/images/kigali_hero.png",
+      "landlordId": "owner-grace",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "kicukiro-family": {
+      "title": "Kicukiro Family House",
+      "type": "house",
+      "neighbourhood": "Kicukiro",
+      "district": "Kicukiro",
+      "city": "Kigali",
+      "street": "KK 15 Rd",
+      "monthlyRent": 280000,
+      "rating": {
+        "__double": 4.3
+      },
+      "reviewCount": 15,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sizeSqm": 110,
+      "furnishing": "Unfurnished",
+      "floor": "Ground floor",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-11-19T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "parking",
+        "security"
+      ],
+      "location": {
+        "__geo": [
+          -1.99,
+          30.103
+        ]
+      },
+      "transitNote": "~15 min by moto · bus stop 200 m away",
+      "imageAsset": "assets/images/gikondo_thumb.png",
+      "landlordId": "owner-eric",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": true,
+      "lastCheckedAt": null
+    },
+    "kibagabaga-apartment": {
+      "title": "Kibagabaga Apartment",
+      "type": "apartment",
+      "neighbourhood": "Kibagabaga",
+      "district": "Gasabo",
+      "city": "Kigali",
+      "street": "KG 44 St",
+      "monthlyRent": 300000,
+      "rating": {
+        "__double": 4.1
+      },
+      "reviewCount": 5,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "sizeSqm": 68,
+      "furnishing": "Semi-furnished",
+      "floor": "3rd of 4",
+      "minLeaseMonths": 12,
+      "depositMonths": {
+        "__double": 1.0
+      },
+      "ownMeters": true,
+      "availableFrom": {
+        "__timestamp": "2026-12-09T22:00:00.000Z"
+      },
+      "facilities": [
+        "water",
+        "wifi"
+      ],
+      "location": {
+        "__geo": [
+          -1.93,
+          30.12
+        ]
+      },
+      "transitNote": "~14 min by moto · bus stop 250 m away",
+      "imageAsset": "assets/images/remera_thumb.png",
+      "landlordId": "owner-patrick",
+      "ownerIdentityVerified": true,
+      "ownershipDocumentVerified": true,
+      "onSiteVerified": false,
+      "lastCheckedAt": null
+    }
+  },
+  "movers": {
+    "gutwara": {
+      "name": "Gutwara Movers",
+      "rating": {
+        "__double": 4.8
+      },
+      "completedMoves": 112,
+      "loaders": 2,
+      "vehicleType": "smallTruck",
+      "vehicleLabel": "3 t truck",
+      "driverName": "Eric Mugisha",
+      "plateNumber": "RAB 421 C",
+      "priceAdjustment": 0,
+      "insured": true,
+      "packingIncluded": false,
+      "verified": true
+    },
+    "urugendo": {
+      "name": "Urugendo Express",
+      "rating": {
+        "__double": 4.6
+      },
+      "completedMoves": 87,
+      "loaders": 2,
+      "vehicleType": "smallTruck",
+      "vehicleLabel": "3 t truck",
+      "driverName": "Claudine Ingabire",
+      "plateNumber": "RAD 118 B",
+      "priceAdjustment": -15000,
+      "insured": false,
+      "packingIncluded": false,
+      "verified": true
+    },
+    "inzu": {
+      "name": "Inzu Movers",
+      "rating": {
+        "__double": 4.9
+      },
+      "completedMoves": 203,
+      "loaders": 3,
+      "vehicleType": "smallTruck",
+      "vehicleLabel": "3.5 t truck",
+      "driverName": "Samuel Nkurunziza",
+      "plateNumber": "RAC 907 A",
+      "priceAdjustment": 25000,
+      "insured": false,
+      "packingIncluded": true,
+      "verified": true
+    },
+    "moto-cargo": {
+      "name": "Imbaraga Pickups",
+      "rating": {
+        "__double": 4.5
+      },
+      "completedMoves": 64,
+      "loaders": 1,
+      "vehicleType": "pickup",
+      "vehicleLabel": "1 t pickup",
+      "driverName": "Olivier Habineza",
+      "plateNumber": "RAE 220 D",
+      "priceAdjustment": -5000,
+      "insured": false,
+      "packingIncluded": false,
+      "verified": true
+    },
+    "gutwara-pickup": {
+      "name": "Gutwara Movers",
+      "rating": {
+        "__double": 4.8
+      },
+      "completedMoves": 41,
+      "loaders": 2,
+      "vehicleType": "pickup",
+      "vehicleLabel": "1.5 t pickup",
+      "driverName": "Eric Mugisha",
+      "plateNumber": "RAB 655 C",
+      "priceAdjustment": 0,
+      "insured": true,
+      "packingIncluded": false,
+      "verified": true
+    },
+    "twimuke": {
+      "name": "Twimuke Logistics",
+      "rating": {
+        "__double": 4.7
+      },
+      "completedMoves": 150,
+      "loaders": 4,
+      "vehicleType": "largeTruck",
+      "vehicleLabel": "7 t truck",
+      "driverName": "Jean Bosco Twagira",
+      "plateNumber": "RAF 301 A",
+      "priceAdjustment": 0,
+      "insured": true,
+      "packingIncluded": false,
+      "verified": true
+    },
+    "inzu-large": {
+      "name": "Inzu Movers",
+      "rating": {
+        "__double": 4.9
+      },
+      "completedMoves": 96,
+      "loaders": 4,
+      "vehicleType": "largeTruck",
+      "vehicleLabel": "8 t truck",
+      "driverName": "Samuel Nkurunziza",
+      "plateNumber": "RAC 112 E",
+      "priceAdjustment": 30000,
+      "insured": false,
+      "packingIncluded": true,
+      "verified": true
+    }
+  }
+}

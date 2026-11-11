@@ -1,0 +1,190 @@
+rules_version = '2';
+
+// Imuka security rules.
+//
+// Principles:
+//  1. Nothing is readable without signing in.
+//  2. Users can only read and write their own data (users/{uid},
+//     moves/{uid}, their own viewings).
+//  3. Email accounts must verify their email before using move, shortlist
+//     and viewing data. Google sign-ins are already verified by Google.
+//  4. Listings, landlords and movers are read-only for the app; they are
+//     published by the team with tool/seed_firestore.mjs.
+//  5. Every write is validated: allowed fields only, correct types, sane
+//     ranges, and fields that must never change (role, owner ids) are locked.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------------------------------------------------------------- helpers
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isUser(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function verified() {
+      return signedIn() && (
+        request.auth.token.get('email_verified', false) == true ||
+        request.auth.token.firebase.sign_in_provider == 'google.com'
+      );
+    }
+
+    function isVerifiedUser(uid) {
+      return isUser(uid) && verified();
+    }
+
+    function data() {
+      return request.resource.data;
+    }
+
+    function hasOnly(keys) {
+      return data().keys().hasOnly(keys);
+    }
+
+    function changedOnly(keys) {
+      return data().diff(resource.data).affectedKeys().hasOnly(keys);
+    }
+
+    function isText(value, min, max) {
+      return value is string && value.size() >= min && value.size() <= max;
+    }
+
+    function optional(field, ok) {
+      return !(field in data()) || ok;
+    }
+
+    // --------------------------------------------------------- users/{uid}
+    // Profile. Readable before email verification (needed for sign-up).
+    match /users/{uid} {
+      function validProfile() {
+        return hasOnly(['fullName', 'email', 'phone', 'role',
+                        'createdAt', 'updatedAt'])
+          && data().fullName is string && data().fullName.size() <= 80
+          // Contact number: 9 digits after +250, or empty.
+          && data().phone is string && data().phone.matches('^([0-9]{9})?$')
+          && data().role in ['mover', 'landlord'];
+      }
+
+      allow read: if isUser(uid);
+      allow create: if isUser(uid) && validProfile();
+      allow update: if isUser(uid) && validProfile()
+        && changedOnly(['fullName', 'phone', 'updatedAt']);
+      allow delete: if isUser(uid);
+
+      // Saved homes: the document id is the property id.
+      match /shortlist/{propertyId} {
+        allow read, delete: if isVerifiedUser(uid);
+        allow create: if isVerifiedUser(uid)
+          && hasOnly(['propertyId', 'addedAt'])
+          && data().propertyId == propertyId
+          && exists(/databases/$(database)/documents/properties/$(propertyId));
+        allow update: if false;
+      }
+    }
+
+    // ------------------------------------------------ read-only catalogue
+    match /properties/{propertyId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    match /landlords/{landlordId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    match /movers/{moverId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    // ------------------------------------------------- viewings/{viewingId}
+    match /viewings/{viewingId} {
+      // List queries must filter on userId == the caller's uid.
+      allow read: if verified() && resource.data.userId == request.auth.uid;
+
+      allow create: if verified()
+        && hasOnly(['userId', 'propertyId', 'landlordId', 'scheduledAt',
+                    'channel', 'message', 'status', 'createdAt'])
+        && data().userId == request.auth.uid
+        && data().status == 'requested'
+        && data().channel in ['call', 'whatsapp', 'inAppChat']
+        && isText(data().message, 0, 500)
+        && data().scheduledAt is timestamp
+        && data().scheduledAt > request.time
+        && data().createdAt == request.time
+        // The landlord must be the listing's real landlord.
+        && get(/databases/$(database)/documents/properties/$(data().propertyId))
+             .data.landlordId == data().landlordId;
+
+      // The requester may only cancel.
+      allow update: if verified()
+        && resource.data.userId == request.auth.uid
+        && changedOnly(['status'])
+        && data().status == 'cancelled';
+
+      allow delete: if false;
+    }
+
+    // ------------------------------------------------------- moves/{uid}
+    // One move per user: plan, booking and payment.
+    match /moves/{uid} {
+      function validMove() {
+        return hasOnly(['userId', 'fromCity', 'toCity', 'moveDate',
+                        'vehicleType', 'stage', 'moverId', 'quote', 'rating',
+                        'receiptRef', 'amountPaid', 'paymentMethod', 'paidAt',
+                        'tasksSeeded', 'updatedAt'])
+          && data().userId == uid
+          && optional('vehicleType',
+               data().vehicleType in ['pickup', 'smallTruck', 'largeTruck'])
+          && optional('moveDate', data().moveDate is timestamp)
+          && optional('stage', data().stage in
+               ['findHome', 'planMove', 'moversBooked', 'movingDay', 'completed'])
+          && optional('quote', data().quote is int && data().quote > 0)
+          && optional('rating', data().rating is int
+               && data().rating >= 0 && data().rating <= 5)
+          && optional('paymentMethod',
+               data().paymentMethod in ['mtnMomo', 'airtelMoney', 'card'])
+          && optional('amountPaid', data().amountPaid is int)
+          && optional('moverId', exists(
+               /databases/$(database)/documents/movers/$(data().moverId)));
+      }
+
+      allow read, delete: if isVerifiedUser(uid);
+      allow create, update: if isVerifiedUser(uid) && validMove();
+
+      match /items/{itemId} {
+        allow read, delete: if isVerifiedUser(uid);
+        allow create: if isVerifiedUser(uid)
+          && hasOnly(['name', 'category', 'unitPrice', 'quantity', 'createdAt'])
+          && isText(data().name, 1, 40)
+          && data().category in ['furniture', 'appliance', 'boxes', 'other']
+          && data().unitPrice is int
+          && data().unitPrice >= 0 && data().unitPrice <= 100000
+          && data().quantity is int
+          && data().quantity >= 1 && data().quantity <= 99;
+        // Only the quantity can change; prices stay as quoted.
+        allow update: if isVerifiedUser(uid)
+          && changedOnly(['quantity'])
+          && data().quantity is int
+          && data().quantity >= 1 && data().quantity <= 99;
+      }
+
+      match /tasks/{taskId} {
+        allow read, delete: if isVerifiedUser(uid);
+        allow create: if isVerifiedUser(uid)
+          && hasOnly(['title', 'phase', 'done', 'createdAt'])
+          && isText(data().title, 1, 80)
+          && data().phase in ['beforeMove', 'movingDay', 'afterMove']
+          && data().done is bool
+          && data().createdAt is timestamp;
+        allow update: if isVerifiedUser(uid)
+          && changedOnly(['title', 'done'])
+          && isText(data().title, 1, 80)
+          && data().done is bool;
+      }
+    }
+  }
+}

@@ -54,7 +54,7 @@ void main() {
         fullName: 'Eric Mugisha',
         email: 'eric@imuka.rw',
         phone: '782000111',
-        password: 'kigali2026',
+        password: 'demo-password-123',
       ),
       expect: () => [const SignupState(showTermsError: true)],
     );
@@ -67,7 +67,7 @@ void main() {
         fullName: 'Eric Mugisha',
         email: 'eric@imuka.rw',
         phone: '782 000 111',
-        password: 'kigali2026',
+        password: 'demo-password-123',
       );
       final user = repository.currentUser!;
       expect(user.role, UserRole.landlord);

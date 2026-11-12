@@ -33,7 +33,7 @@ void main() {
 
   group('Validators.password', () {
     test('requires 8+ characters with letters and numbers', () {
-      expect(Validators.password('kigali2026'), isNull);
+      expect(Validators.password('demo-password-123'), isNull);
       expect(Validators.password(''), contains('create a password'));
       expect(Validators.password('short1'), contains('8 characters'));
       expect(Validators.password('onlyletters'), contains('letters'));

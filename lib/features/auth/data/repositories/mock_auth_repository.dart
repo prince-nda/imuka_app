@@ -6,14 +6,14 @@ import '../../domain/repositories/auth_repository.dart';
 /// In-memory [AuthRepository] used by tests and by offline demo builds
 /// (`--dart-define=USE_MOCKS=true`).
 ///
-/// Demo account: `aline@imuka.rw` / `kigali2026`.
+/// Demo account: `aline@imuka.rw` / `demo-password-123`.
 /// New accounts start with an unverified email; call [confirmEmail] to
 /// simulate opening the verification link.
 class MockAuthRepository implements AuthRepository {
   MockAuthRepository({this.latency = const Duration(milliseconds: 600)});
 
   static const demoEmail = 'aline@imuka.rw';
-  static const demoPassword = 'kigali2026';
+  static const demoPassword = 'demo-password-123';
 
   final Duration latency;
   final _controller = StreamController<AppUser?>.broadcast();

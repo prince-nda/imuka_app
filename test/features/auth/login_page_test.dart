@@ -28,7 +28,7 @@ void main() {
     final auth = await pumpWithAuth(tester, const LoginPage());
 
     await tester.enterText(field(0), 'aline.imuka.rw');
-    await tester.enterText(field(1), 'kigali2026');
+    await tester.enterText(field(1), 'demo-password-123');
     await tester.tap(find.text('Log in'));
     await tester.pump();
 

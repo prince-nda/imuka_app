@@ -24,6 +24,21 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>GIDClientID</key>
+	<string>982611988114-85fr9hhk8ltlu5lhv8hclrjie8el05s7.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>982611988114-akkhejbr7guc2c56tpigjkebihrqg8uj.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.982611988114-85fr9hhk8ltlu5lhv8hclrjie8el05s7</string>
+			</array>
+		</dict>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

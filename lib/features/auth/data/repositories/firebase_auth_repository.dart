@@ -120,10 +120,15 @@ class FirebaseAuthRepository implements AuthRepository {
   // Google
   // ---------------------------------------------------------------------
 
+  /// OAuth "Web client" ID of the Firebase project. Android needs it to
+  /// return an ID token that Firebase Auth accepts.
+  static const _googleServerClientId =
+      '982611988114-akkhejbr7guc2c56tpigjkebihrqg8uj.apps.googleusercontent.com';
+
   @override
   Future<void> signInWithGoogle() => _guard(() async {
     if (!_googleInitialized) {
-      await _google.initialize();
+      await _google.initialize(serverClientId: _googleServerClientId);
       _googleInitialized = true;
     }
     final account = await _google.authenticate();
